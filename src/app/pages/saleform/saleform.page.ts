@@ -99,7 +99,7 @@ export class SaleformPage implements OnInit {
     this.httpapi.addsaleformdata(this.form.value.name,this.form.value.c_name,this.form.value.c_mobile,this.form.value.location,this.form.value.model_name,
       this.form.value.color,this.form.value.chassis, this.form.value.amount,this.form.value.discount, this.form.value.a_mobile,this.test,this.form.value.battery,
       this.form.value.motor,this.form.value.charger,this.form.value.controller,
-      this.form.value.city,this.form.value.state,this.form.value.pan,this.form.value.dist,this.form.value.pincode,this.form.value.email).subscribe({
+      this.form.value.city,this.form.value.state,this.form.value.pan,this.form.value.dist,this.form.value.pincode,this.form.value.email,this.form.value.battery_type).subscribe({
       next:(data) => {
         console.log(data);
         this.response2 = data;

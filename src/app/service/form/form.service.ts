@@ -83,7 +83,7 @@ export class FormService {
   }
 
   addsaleformdata(name:any, c_name:any, c_mobile: any, location : any, model_name: any,color:any, chassis:any,amount : any,discount:any, a_mobile:any, test:any,battery:any,motor:any,charger:any,controller:any,
-    city:any,state:any,pan:any,dist:any,pincode:any,email:any):Observable<any>{
+    city:any,state:any,pan:any,dist:any,pincode:any,email:any,battery_type:any):Observable<any>{
     const formData = new FormData();
     formData.append('name', name);
     formData.append('a_mobile', a_mobile);
@@ -106,6 +106,8 @@ export class FormService {
     formData.append('dist',dist);
     formData.append('pincode',pincode);
     formData.append('email',email);
+    formData.append('battery_type',battery_type);
+
     return this.api.post<any>(environment.apiurl + 'customer_sale.php',  formData);
   }
 
@@ -148,13 +150,15 @@ export class FormService {
   }
 
   getAllProduct_with_inv(d_id:any):Observable<any>{
-    return this.api.get<any>(environment.apiurl + 'dealer_model_inv.php?d_id=' + d_id);
+    const formData = new FormData();
+    formData.append('d_id', d_id);
+    return this.api.post<any>(environment.apiurl + 'dealer_model_inv.php' , formData);
   }
   getVarient(model : any,id:any):Observable<any>{
     const formData = new FormData();
     formData.append('model', model);
     formData.append('id', id);
-    return this.api.post<any>(environment.apiurl + 'dealer_varients_inv.php', formData);
+    return this.api.post<any>(environment.apiurl + 'dealer_varient_check.php', formData);
   
   }
 

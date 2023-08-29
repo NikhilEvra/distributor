@@ -4,7 +4,7 @@
 
 export const environment = {
   production: false,
-   apiurl : 'https://evramedia.com/apifolder/',
+   apiurl : 'https://evraconnect.com/apifolder/app_api/',
   // apiurl : 'https://evramedia.com/apifolder/',
 };
 

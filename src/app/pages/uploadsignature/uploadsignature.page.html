@@ -1,0 +1,53 @@
+<ion-header mode="ios">
+  <ion-toolbar color="danger">
+    <ion-title>Upload Signature</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <div style="width:97%;height:150px;margin:5px 5px;">
+    <img src="https://evramedia.com/apifolder/catalog/14.png" style="height:100%;width:100%; border-radius: 15px;">
+  </div>
+
+  <form [formGroup]="form">
+   
+   
+<section class="inputbox">
+  <ion-text color="danger">Outlet Name</ion-text>
+  <ion-item lines="none">
+   
+    <ion-input type="text" placeholder="{{getuserdata.dealership_name}}" readonly="" value="{{getuserdata.dealership_name}}" formControlName="name"> </ion-input>
+
+  </ion-item>
+  </section> 
+
+<section class="inputbox">
+<ion-text color="danger">Attachment</ion-text>
+<ion-item lines="none">
+ 
+  <input type="file" (change)="uploadPhoto($event)"   />
+</ion-item>
+</section>
+
+  <ion-item lines="none">
+   
+<!-- <ion-input type="chekbox" formControlName="check">sdfgdf</ion-input> -->
+
+<ion-checkbox labelPlacement="start" formControlName="check" color="danger"></ion-checkbox>
+I agree to the terms and conditions
+
+  </ion-item>
+
+<ion-row>
+<ion-col >
+  <ion-button expand="block" color="danger" shape="round" (click)="presentAlert()" [disabled]="form.invalid">Submit Compalint </ion-button>
+</ion-col>
+<ion-col >
+  <ion-button expand="block" color="primary" shape="round" (click)="openInAppBrow2()" >Read Terms and Conditions  </ion-button>
+</ion-col>
+</ion-row>
+</form> 
+
+
+
+</ion-content>

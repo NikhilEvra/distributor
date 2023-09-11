@@ -1,4 +1,4 @@
-package io.ionic.starter;
+package io.evra.connect;
 
 import com.getcapacitor.BridgeActivity;
 

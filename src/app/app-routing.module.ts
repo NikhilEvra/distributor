@@ -150,6 +150,10 @@ const routes: Routes = [
     path: 'sparepart-catalog',
     loadChildren: () => import('./pages/sparepart-catalog/sparepart-catalog.module').then( m => m.SparepartCatalogPageModule)
   },
+  {
+    path: 'uploadsignature',
+    loadChildren: () => import('./pages/uploadsignature/uploadsignature.module').then( m => m.UploadsignaturePageModule)
+  },
   // {
   //   path: 'tab4',
   //   loadChildren: () => import('./tab4/tab4.module').then( m => m.Tab4PageModule)

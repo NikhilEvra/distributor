@@ -269,4 +269,13 @@ export class FormService {
   
     return this.api.post<any>(environment.apiurl + 'dealer_reimbursement.php',  formData);
   }
+
+  add_signature(data:any,d_id:any):Observable<any>{
+    const formData = new FormData();
+    formData.append('file', data.signature);
+    formData.append('d_id', d_id); 
+
+    return this.api.post<any>(environment.apiurl + 'dealer_add_signature.php',  formData);
+
+  }
 }

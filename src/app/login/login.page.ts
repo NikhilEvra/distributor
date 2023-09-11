@@ -20,9 +20,9 @@ export class LoginPage implements OnInit {
   response4:any=[];
   isModalOpen = false;
   homeBanner: any = [{
-    url: 'https://evramedia.com/apifolder/catalog/13.png'
+    url: 'https://evraconnect.com/apifolder/app_api/catalog/13.png'
   },{
-    url: 'https://evramedia.com/apifolder/catalog/14.png'
+    url: 'https://evraconnect.com/apifolder/app_api/catalog/14.png'
   }]
   slideServiceReport = {
     initialSlide: 0,
@@ -110,14 +110,20 @@ initForm(){
       else{
         localStorage.setItem('user',JSON.stringify(this.response[0]));
         //this.api.menu.next(this.response2);
-        this.router.navigateByUrl('/dashboard');
-        Swal.fire({
-            'imageUrl' :'assets/icon/login.gif',
-            'imageHeight':'100px', 
-            'title': 'You have successfully loged in',
-             heightAuto: false , 
-             timer: 3000
-            });
+        if(!this.response[0].signature){
+          alert('yes')
+        }
+          else{
+            this.router.navigateByUrl('/dashboard');
+            Swal.fire({
+                'imageUrl' :'assets/icon/login.gif',
+                'imageHeight':'100px', 
+                'title': 'You have successfully loged in',
+                 heightAuto: false , 
+                 timer: 3000
+                });
+          }
+        
                   
       }        
     }
@@ -262,15 +268,20 @@ checkOtp(){
         localStorage.setItem('user',JSON.stringify(this.response[0]));
         //this.api.menu.next(this.response2);
         this.isModalOpen = false;
-        this.router.navigateByUrl('/dashboard');
-        Swal.fire({
-            'imageUrl' :'assets/icon/login.gif',
-            'imageHeight':'100px', 
-            'title': 'You have successfully loged in',
-             heightAuto: false , 
-             timer: 3000
-            });
-                  
+        if(!this.response[0].signature){
+         this.router.navigateByUrl('/uploadsignature');
+        }
+          else{
+            this.router.navigateByUrl('/dashboard');
+            Swal.fire({
+                'imageUrl' :'assets/icon/login.gif',
+                'imageHeight':'100px', 
+                'title': 'You have successfully loged in',
+                 heightAuto: false , 
+                 timer: 3000
+                });
+          }
+          
       }        
      
     }

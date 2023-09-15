@@ -52,12 +52,14 @@ export class CartService {
 
   }
 
-  getPrice(varient : any, model:any, usertype:any,battery:any):Observable<any>{
+  getPrice(varient : any, model:any, usertype:any,battery:any, plan_type:any):Observable<any>{
     const formData = new FormData();
     formData.append('varient', varient);
     formData.append('model', model);
     formData.append('usertype', usertype);
     formData.append('battery', battery);
+    formData.append('plan_type', plan_type);
+
 
  
     return this.api.post<any>(environment.apiurl + 'get_varient_price.php',  formData);
@@ -126,6 +128,15 @@ export class CartService {
     formdata.append('s_id',s_id);
 
     return this.api.post<any>(environment.apiurl + 'add_sparepart_cart.php' , formdata);
+
+  }
+
+  get_battery(model:any,plan_type:any):Observable<any>{
+    const formdata = new FormData();
+    formdata.append('model',model);
+    formdata.append('plan_type',plan_type);
+
+    return this.api.post<any>(environment.apiurl + 'get_battery_type.php' , formdata);
 
   }
 

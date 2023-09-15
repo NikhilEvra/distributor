@@ -43,14 +43,11 @@
     <ion-text color="danger">Battery Type</ion-text>
     <ion-item lines="none">
       <ion-select interface="popover"  placeholder="Select Battery Type" formControlName="battery"  (ionChange)="show()" >
-        <ion-select-option >
-          <ion-button>Lithium ion</ion-button>
+        <ion-select-option *ngFor="let dat of batterytype">
+          <ion-button>{{dat.battery}}</ion-button>
           
         </ion-select-option>
-        <ion-select-option >
-          <ion-button>Lead acid</ion-button>
-          
-        </ion-select-option>
+     
         
       </ion-select>
       

@@ -33,7 +33,9 @@ export class Cart1Page implements OnInit {
 
   modelinv:any=[];
   myfun2 = false;
- unit_price : any=[];
+  unit_price : any=[];
+  batterytype:any=[];
+
   constructor(
     private route : ActivatedRoute,
     private formb : FormBuilder,
@@ -75,6 +77,7 @@ export class Cart1Page implements OnInit {
   this.Initform();
   // this.getdata();
       this.checkinv();
+      this.get_battery_type();
   }
 
   checkinv(){
@@ -136,7 +139,7 @@ export class Cart1Page implements OnInit {
   this.priceWithOutbatt=null;
 
     // console.log(this.form.value.battery)
-    this.api.getPrice(this.varient, this.model_name, this.getuserdata.usertype,this.form.value.battery).subscribe({
+    this.api.getPrice(this.varient, this.model_name, this.getuserdata.usertype,this.form.value.battery,this.getuserdata.plan_type).subscribe({
       next:(data) =>{
         console.log(data);
         this.price = data;
@@ -232,5 +235,28 @@ export class Cart1Page implements OnInit {
   }
   showbatterytype(){
   this.myfun2 = true;
+  }
+
+  get_battery_type(){
+    
+    this.api.get_battery(this.form.value.model,this.getuserdata.plan_type).subscribe({
+      next:(data) =>{
+        console.log(data);
+       
+    this.batterytype = data;
+    // console.log(this.modelinv.messasge);
+       
+     
+      },
+      error:() =>{
+        alert('error');
+     
+      },
+      complete:() =>{
+        // this.loadingCtrl.dismiss();
+        
+      }
+    })
+    
   }
 }

@@ -140,4 +140,12 @@ export class CartService {
 
   }
 
+  check_plan_type_product_count(model:any,plan_type:any):Observable<any>{
+    const formdata = new FormData();
+    formdata.append('model',model);
+    formdata.append('plan_type',plan_type);
+
+    return this.api.post<any>(environment.apiurl + 'check_plan_type_product_avalability.php' , formdata);
+
+  }
 }

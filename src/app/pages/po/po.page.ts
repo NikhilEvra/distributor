@@ -138,15 +138,15 @@ export class PoPage implements OnInit {
 
   updatevalue(dat :any){
     this.model_name = dat;
-    if(this.model_name == 'HELTER'){
-      Swal.fire({ 'title': 'Out Of Stock!',  heightAuto: false ,  timer: 3000});
+  //   if(this.model_name == 'HELTER'){
+  //     Swal.fire({ 'title': 'Out Of Stock!',  heightAuto: false ,  timer: 3000});
 
-    }
-   else if(this.model_name == 'LUSTER'){
-    Swal.fire({ 'title': 'Out Of Stock!',   heightAuto: false ,  timer: 3000});
+  //   }
+  //  else if(this.model_name == 'LUSTER'){
+  //   Swal.fire({ 'title': 'Out Of Stock!',   heightAuto: false ,  timer: 3000});
 
-    }
-    else{
+  //   }
+  
         // console.log(this.model_name);
         let navigationExtras: NavigationExtras = {
           queryParams: {
@@ -154,7 +154,7 @@ export class PoPage implements OnInit {
           }
         };
         this.router.navigate(['/cart1'], navigationExtras);
-    }
+    
   
   }
 
@@ -194,15 +194,15 @@ model(){
 
 updatevalue2(dat :any){
   this.model_name = dat;
-  if(this.model_name == 'HELTER'){
-    Swal.fire({ 'title': 'Out Of Stock!',  heightAuto: false ,  timer: 3000});
+//   if(this.model_name == 'HELTER'){
+//     Swal.fire({ 'title': 'Out Of Stock!',  heightAuto: false ,  timer: 3000});
 
-  }
- else if(this.model_name == 'LUSTER'){
-  Swal.fire({ 'title': 'Out Of Stock!',   heightAuto: false ,  timer: 3000});
+//   }
+//  else if(this.model_name == 'LUSTER'){
+//   Swal.fire({ 'title': 'Out Of Stock!',   heightAuto: false ,  timer: 3000});
 
-  }
-  else{
+//   }
+//   else{
       // console.log(this.model_name);
       let navigationExtras: NavigationExtras = {
         queryParams: {
@@ -211,7 +211,7 @@ updatevalue2(dat :any){
       };
       this.router.navigate(['/sparepart-catalog'], navigationExtras);
       // this.router.navigateByUrl('/sparepart-catalog');
-  }
+  // }
 
 }
 

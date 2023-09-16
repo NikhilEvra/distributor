@@ -35,6 +35,7 @@ export class Cart1Page implements OnInit {
   myfun2 = false;
   unit_price : any=[];
   batterytype:any=[];
+  count:any=[];
 
   constructor(
     private route : ActivatedRoute,
@@ -78,6 +79,7 @@ export class Cart1Page implements OnInit {
   // this.getdata();
       this.checkinv();
       this.get_battery_type();
+      this.check_product_availability();
   }
 
   checkinv(){
@@ -98,7 +100,7 @@ export class Cart1Page implements OnInit {
       complete:() =>{
         // this.loadingCtrl.dismiss();
         if(this.modelinv.status == 400){
-    Swal.fire({'title': 'Out Of Stock!',  heightAuto: false ,  timer: 3000});
+    Swal.fire({'title': 'Coming Soon!',  heightAuto: false ,  timer: 3000});
     this.router.navigateByUrl('/po');
 
         }
@@ -254,6 +256,30 @@ export class Cart1Page implements OnInit {
       },
       complete:() =>{
         // this.loadingCtrl.dismiss();
+        
+      }
+    })
+    
+  }
+
+  check_product_availability(){
+    
+      this.api.check_plan_type_product_count(this.form.value.model,this.getuserdata.plan_type).subscribe({
+      next:(data) =>{
+      console.log(data);
+       this.count = data;     
+      },
+      error:() =>{
+        // alert('error');
+        Swal.fire({'title':'Interval Server Error',  heightAuto: false ,  timer: 3000});
+     
+      },
+      complete:() =>{
+     console.log(this.count.total)
+        if(this.count.total == '0'){
+          Swal.fire({'title':'Coming Soon!',  heightAuto: false ,  timer: 3000});
+          this.router.navigateByUrl('/po');
+        }
         
       }
     })

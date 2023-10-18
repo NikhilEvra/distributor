@@ -115,7 +115,7 @@ export class UploadsignaturePage implements OnInit {
     const browser = this.iab.create('https://evraconnect.com/apifolder/app_api/privacy_policy.php', '_system', 'location=no, zoom=yes ');
     browser.on('loadstart').subscribe(data => {
      console.log(data.url);
-     if (data.url === 'https://evramedia.com/') {
+     if (data.url === 'https://evraconnect.com/') {
        browser.close();
      }
     });

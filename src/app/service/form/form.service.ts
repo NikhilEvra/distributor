@@ -278,4 +278,33 @@ export class FormService {
     return this.api.post<any>(environment.apiurl + 'dealer_add_signature.php',  formData);
 
   }
+  candf_dash_data(data:any):Observable<any>{
+    const formData = new FormData();
+    formData.append('state',data);
+    return this.api.post<any>(environment.apiurl + 'candf_dash_data.php', formData);
+  }
+
+  candf_dash_count(data:any):Observable<any>{
+    const formData = new FormData();
+    formData.append('cnf',data);
+    return this.api.post<any>(environment.apiurl + 'get_cnf_sales_count.php', formData);
+  }
+
+  get_cnf_partner_inv(data:any):Observable<any>{
+    const formData = new FormData();
+    formData.append('cnf',data);
+    return this.api.post<any>(environment.apiurl + 'get_partners_list_with_inv.php', formData);
+  }
+
+  view_cnf_partner_inv(data:any):Observable<any>{
+    
+    return this.api.get<any>(environment.apiurl + 'inventory_count.php?d_id='+ data);
+  }
+
+  view_cnf_partner_sale(data:any):Observable<any>{
+    const formData = new FormData();
+    formData.append('cnf',data);
+    return this.api.post<any>(environment.apiurl + 'get_partners_list_sales.php', formData);
+  }
+
 }

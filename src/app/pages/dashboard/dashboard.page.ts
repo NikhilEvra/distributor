@@ -17,6 +17,7 @@ export class DashboardPage implements OnInit {
   result: any;
   public progress = 0.7;
   USTEMP = localStorage.getItem('user');
+  showcnf= false;
 
   getuserdata: any=[];
 
@@ -79,8 +80,9 @@ export class DashboardPage implements OnInit {
   }; 
   
  
-
+  cnfdealer_total:any=[];
   myfun = false;
+  cnf_sales_total:any=[];
 
   menu1:any=[];
   response:any=[];
@@ -104,6 +106,7 @@ export class DashboardPage implements OnInit {
     if (this.USTEMP) {
       this.getuserdata = JSON.parse(this.USTEMP) ;
     } 
+     
   }
 
   setOpen(isOpen: boolean) {
@@ -137,7 +140,13 @@ export class DashboardPage implements OnInit {
 
   ngOnInit() {
     this.showLoading();
+    if(this.getuserdata.usertype == 'C&F'){
+      this.showcnf = true;
+      this.cfdata();
+    }
     this.dashData();
+
+   
   }
 
   menu(): void{
@@ -246,6 +255,7 @@ export class DashboardPage implements OnInit {
       setTimeout(() => {
         // Any calls to load data go here
         this.dashData();
+        this.cfdata();
         event.target.complete();
       }, 2000);
     }
@@ -257,4 +267,39 @@ redirect(url:any){
   this.router.navigateByUrl(url);
 }
    
+cfdata(){
+   
+  this.api.candf_dash_data(this.getuserdata.state).subscribe({
+      next:(data) =>{
+        console.log(data);
+        this.cnfdealer_total = data.total;
+      },
+      error:() =>{
+        console.log('error');
+     
+      },
+      complete:() =>{
+       this.cfdata2()
+      }
+    })
+  }
+
+     
+cfdata2(){
+   
+  this.api.candf_dash_count(this.getuserdata.dealership_name).subscribe({
+      next:(data) =>{
+        console.log(data);
+     this.cnf_sales_total = data.total;
+      },
+      error:() =>{
+        console.log('error');
+     
+      },
+      complete:() =>{
+ 
+      }
+    })
+  }
+
 }

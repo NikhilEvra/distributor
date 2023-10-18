@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { NavigationExtras, Router } from '@angular/router';
 import { CartService } from 'src/app/service/cart/cart.service';
 import { ReplaceserviceService } from 'src/app/service/replace/replaceservice.service';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-replaceitems',
@@ -50,7 +51,16 @@ export class ReplaceitemsPage implements OnInit {
       next:(data) =>{
         console.log(data);
         this.response = data;
-       
+        if(this.response.length == 0){
+          Swal.fire({
+            'imageUrl' :'assets/icon/login.gif',
+            'imageHeight':'100px', 
+            'title': 'No Records Found',
+             heightAuto: false , 
+             timer: 3000
+            });
+            this.router.navigateByUrl('/services')
+        }
       },
       error:() =>{
         alert('error');

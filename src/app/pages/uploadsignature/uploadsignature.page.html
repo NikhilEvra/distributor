@@ -6,7 +6,7 @@
 
 <ion-content>
   <div style="width:97%;height:150px;margin:5px 5px;">
-    <img src="https://evramedia.com/apifolder/catalog/14.png" style="height:100%;width:100%; border-radius: 15px;">
+    <img src="https://evraconnect.com/apifolder/catalog/14.png" style="height:100%;width:100%; border-radius: 15px;">
   </div>
 
   <form [formGroup]="form">
@@ -33,14 +33,13 @@
    
 <!-- <ion-input type="chekbox" formControlName="check">sdfgdf</ion-input> -->
 
-<ion-checkbox labelPlacement="start" formControlName="check" color="danger"></ion-checkbox>
-I agree to the terms and conditions
-
+  <ion-checkbox labelPlacement="start" formControlName="check" color="danger" ></ion-checkbox>
+  I agree to the terms and conditions
   </ion-item>
 
 <ion-row>
 <ion-col >
-  <ion-button expand="block" color="danger" shape="round" (click)="presentAlert()" [disabled]="form.invalid">Submit Compalint </ion-button>
+  <ion-button expand="block" color="danger" shape="round" (click)="presentAlert()" [disabled]="form.invalid">Submit </ion-button>
 </ion-col>
 <ion-col >
   <ion-button expand="block" color="primary" shape="round" (click)="openInAppBrow2()" >Read Terms and Conditions  </ion-button>

@@ -154,6 +154,18 @@ const routes: Routes = [
     path: 'uploadsignature',
     loadChildren: () => import('./pages/uploadsignature/uploadsignature.module').then( m => m.UploadsignaturePageModule)
   },
+  {
+    path: 'patnerinv',
+    loadChildren: () => import('./pages/patnerinv/patnerinv.module').then( m => m.PatnerinvPageModule)
+  },
+  {
+    path: 'viewpartnerinv',
+    loadChildren: () => import('./pages/viewpartnerinv/viewpartnerinv.module').then( m => m.ViewpartnerinvPageModule)
+  },
+  {
+    path: 'viewpartnersales',
+    loadChildren: () => import('./pages/viewpartnersales/viewpartnersales.module').then( m => m.ViewpartnersalesPageModule)
+  },
   // {
   //   path: 'tab4',
   //   loadChildren: () => import('./tab4/tab4.module').then( m => m.Tab4PageModule)

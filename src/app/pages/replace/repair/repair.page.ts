@@ -119,7 +119,19 @@ export class RepairPage implements OnInit {
     next:(data)=>{
       console.log(data);
       this.response = data;
-      this.myfun = true;
+      if(this.response.length == 0){
+        Swal.fire({
+          'imageUrl' :'assets/icon/login.gif',
+          'imageHeight':'100px', 
+          'title': 'No Records Found',
+           heightAuto: false , 
+           timer: 3000
+          });
+      }
+      else{
+        this.myfun = true;
+
+      }
     },
     error:() =>{
       alert('error');

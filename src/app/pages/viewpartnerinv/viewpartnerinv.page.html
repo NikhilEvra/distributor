@@ -1,0 +1,22 @@
+<ion-header mode="ios">
+  <ion-toolbar color="danger">
+    <ion-title>View Partner Inventory</ion-title>
+    <ion-buttons slot="end">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+  <ion-card>
+    <img alt="Silhouette of mountains" src="https://evraconnect.com/apifolder/catalog/14.png"  />  
+     
+      <ion-card-content>
+        <ion-item  *ngFor="let dat of response" >
+          <ion-label><ion-button color="danger" >{{dat.model}}</ion-button></ion-label>
+          <ion-text>{{dat.inventory}}</ion-text>
+        </ion-item>
+</ion-card-content>
+</ion-card>  
+</ion-content>

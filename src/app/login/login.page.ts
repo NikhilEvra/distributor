@@ -276,7 +276,7 @@ checkOtp(){
             Swal.fire({
                 'imageUrl' :'assets/icon/login.gif',
                 'imageHeight':'100px', 
-                'title': 'You have successfully loged in',
+                'title': 'You have successfully logged in',
                  heightAuto: false , 
                  timer: 3000
                 });

@@ -3,6 +3,7 @@ import { FormService } from 'src/app/service/form/form.service';
 import { InfiniteScrollCustomEvent } from '@ionic/angular';
 import { Router } from '@angular/router';
 import { InAppBrowser } from '@awesome-cordova-plugins/in-app-browser/ngx';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-salerecord',
@@ -52,6 +53,16 @@ export class SalerecordPage implements OnInit {
       next:(data) =>{
         console.log(data);
         this.response = data;
+        if(this.response.length == 0){
+          Swal.fire({
+            'imageUrl' :'assets/icon/login.gif',
+            'imageHeight':'100px', 
+            'title': 'No Records Found',
+             heightAuto: false , 
+             timer: 3000
+            });
+            this.router.navigateByUrl('/sales');
+        }
       },
       error:() =>{
         alert('error');

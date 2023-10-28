@@ -18,6 +18,7 @@ export class DashboardPage implements OnInit {
   public progress = 0.7;
   USTEMP = localStorage.getItem('user');
   showcnf= false;
+  showdealer=true;
 
   getuserdata: any=[];
 
@@ -92,6 +93,8 @@ export class DashboardPage implements OnInit {
   response5:any=[];
   response6:any=[];
   response7:any=[];
+  cnf_ptr_ticket_count:any=[];
+  cnf_ptr_po_count:any=[];
 
   constructor(
     private router : Router,
@@ -102,7 +105,7 @@ export class DashboardPage implements OnInit {
     private api : FormService,
     private popovercontroller : PopoverController,
   ) { 
-    console.log(this.USTEMP);
+    // console.log(this.USTEMP);
     if (this.USTEMP) {
       this.getuserdata = JSON.parse(this.USTEMP) ;
     } 
@@ -142,9 +145,14 @@ export class DashboardPage implements OnInit {
     this.showLoading();
     if(this.getuserdata.usertype == 'C&F'){
       this.showcnf = true;
+      this.showdealer = false;
       this.cfdata();
+      this.cfdata2();
+      this.cfdata3();
+      this.cfdata4();
     }
     this.dashData();
+
 
    
   }
@@ -279,7 +287,7 @@ cfdata(){
      
       },
       complete:() =>{
-       this.cfdata2()
+      
       }
     })
   }
@@ -302,4 +310,40 @@ cfdata2(){
     })
   }
 
+
+       
+cfdata3(){
+   
+  this.api.candf_ptr_ticket_count(this.getuserdata.dealership_name).subscribe({
+      next:(data) =>{
+        console.log(data.total);
+     this.cnf_ptr_ticket_count = data.total;
+      },
+      error:() =>{
+        console.log('error');
+     
+      },
+      complete:() =>{
+ 
+      }
+    })
+  }
+
+       
+cfdata4(){
+   
+     this.api.candf_ptr_po_count(this.getuserdata.dealership_name).subscribe({
+      next:(data) =>{
+        console.log(data.total);
+     this.cnf_ptr_po_count = data.total;
+      },
+      error:() =>{
+        console.log('error');
+     
+      },
+      complete:() =>{
+ 
+      }
+    })
+  }
 }

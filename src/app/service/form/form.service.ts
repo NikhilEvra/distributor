@@ -307,4 +307,16 @@ export class FormService {
     return this.api.post<any>(environment.apiurl + 'get_partners_list_sales.php', formData);
   }
 
+  candf_ptr_ticket_count(data:any):Observable<any>{
+    const formData = new FormData();
+    formData.append('cnf',data);
+    return this.api.post<any>(environment.apiurl + 'cnf_get_ptr_complaints_count.php', formData);
+  }
+
+  candf_ptr_po_count(data:any):Observable<any>{
+    const formData = new FormData();
+    formData.append('cnf',data);
+    return this.api.post<any>(environment.apiurl + 'cnf_get_ptr_po_count.php', formData);
+  }
+
 }

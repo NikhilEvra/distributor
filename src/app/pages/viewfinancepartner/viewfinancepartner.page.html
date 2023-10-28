@@ -1,0 +1,43 @@
+<ion-header mode="ios">
+  <ion-toolbar color="danger">
+    <ion-title>Partner's Details</ion-title>
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-buttons slot="end">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-card  >
+    <ion-card-header color="danger" style="text-align: center;">{{data.name}}</ion-card-header>  
+       <ion-card-content>
+        
+         <ion-item>
+           <ion-label>Authorised Person </ion-label>
+           <ion-text>{{data.auth_name}}</ion-text>
+         </ion-item>
+         <ion-item>
+           <ion-label>Phone</ion-label>
+           <ion-text>{{data.phone}}</ion-text>
+         </ion-item>
+         <ion-item>
+           <ion-label>Starting Date
+           </ion-label>
+           <ion-text>{{data.start_date}}</ion-text>
+         </ion-item>
+         <ion-item>
+          <ion-label>Location</ion-label>
+          <ion-text>{{data.location}}</ion-text>
+        </ion-item>
+        <ion-item>
+          <ion-label>Status</ion-label>
+          <ion-text>{{data.status}}</ion-text>
+        </ion-item>
+        
+      
+       </ion-card-content>
+     </ion-card>
+</ion-content>

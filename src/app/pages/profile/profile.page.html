@@ -4,7 +4,7 @@
       <ion-menu-button></ion-menu-button>
     </ion-buttons>
    
-    <ion-title>Dealer Profile</ion-title>
+    <ion-title>My Profile</ion-title>
     <ion-buttons slot="end" (click)="openPage('/dashboard')">
       <ion-icon name="arrow-back" ></ion-icon>Back
     </ion-buttons>
@@ -55,7 +55,8 @@
             <ion-item slot="header">
               <ion-label>Phone</ion-label>
             </ion-item>
-            <div class="ion-padding" slot="content">Number :{{userprofile.phone}}<br>Alternative Number :{{userprofile.alt_phone}}</div>
+            <div class="ion-padding" slot="content">Number :{{userprofile.phone}}<br>Alternative Number :{{userprofile.alt_phone}}
+            <br>Official Number :{{userprofile.ofc_phone}}</div>
 
           </ion-accordion>
           <ion-accordion >

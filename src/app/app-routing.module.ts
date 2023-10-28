@@ -166,6 +166,18 @@ const routes: Routes = [
     path: 'viewpartnersales',
     loadChildren: () => import('./pages/viewpartnersales/viewpartnersales.module').then( m => m.ViewpartnersalesPageModule)
   },
+  {
+    path: 'viewfinancepartner',
+    loadChildren: () => import('./pages/viewfinancepartner/viewfinancepartner.module').then( m => m.ViewfinancepartnerPageModule)
+  },
+  {
+    path: 'partnertickets',
+    loadChildren: () => import('./pages/cnf/partnertickets/partnertickets.module').then( m => m.PartnerticketsPageModule)
+  },
+  {
+    path: 'partnerpo',
+    loadChildren: () => import('./pages/cnf/partnerpo/partnerpo.module').then( m => m.PartnerpoPageModule)
+  },
   // {
   //   path: 'tab4',
   //   loadChildren: () => import('./tab4/tab4.module').then( m => m.Tab4PageModule)

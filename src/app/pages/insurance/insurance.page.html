@@ -19,6 +19,7 @@
         <!-- <ion-label></ion-label> -->
         <ion-text>{{i + 1 }}</ion-text> : &nbsp;
         <ion-text>{{dat.name}}</ion-text>
+        <ion-button  color="danger"  slot="end" (click)="open(dat.name,dat.phone,dat.status,dat.location,dat.start_date,dat.auth_name)" ><ion-icon name="arrow-forward-outline"></ion-icon></ion-button> 
 
         
       </ion-item>

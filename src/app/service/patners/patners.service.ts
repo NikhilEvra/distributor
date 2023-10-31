@@ -26,4 +26,10 @@ export class PatnersService {
     return this.http.post<any>(environment.apiurl + 'cnf_ptr_wise_ticket_count.php' , formData)
   }
 
+  candf_ptr_info(data:any):Observable<any>{
+    const formData = new FormData();
+    formData.append('cnf',data);
+    return this.http.post<any>(environment.apiurl + 'cnf_partner_data.php',formData);
+  }
+
 }

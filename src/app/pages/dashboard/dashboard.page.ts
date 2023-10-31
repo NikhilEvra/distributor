@@ -84,6 +84,7 @@ export class DashboardPage implements OnInit {
   cnfdealer_total:any=[];
   myfun = false;
   cnf_sales_total:any=[];
+  cnf_ptr_inv_count:any=[];
 
   menu1:any=[];
   response:any=[];
@@ -150,6 +151,7 @@ export class DashboardPage implements OnInit {
       this.cfdata2();
       this.cfdata3();
       this.cfdata4();
+      this.cfdata5();
     }
     this.dashData();
 
@@ -262,8 +264,9 @@ export class DashboardPage implements OnInit {
     handleRefresh(event : any) {
       setTimeout(() => {
         // Any calls to load data go here
-        this.dashData();
-        this.cfdata();
+        // this.dashData();
+        // this.cfdata();
+        this.ngOnInit();
         event.target.complete();
       }, 2000);
     }
@@ -276,8 +279,8 @@ redirect(url:any){
 }
    
 cfdata(){
-   
-  this.api.candf_dash_data(this.getuserdata.state).subscribe({
+     
+  this.api.candf_dash_data(this.getuserdata.dealership_name).subscribe({
       next:(data) =>{
         console.log(data);
         this.cnfdealer_total = data.total;
@@ -334,7 +337,7 @@ cfdata4(){
    
      this.api.candf_ptr_po_count(this.getuserdata.dealership_name).subscribe({
       next:(data) =>{
-        console.log(data.total);
+        console.log(data);
      this.cnf_ptr_po_count = data.total;
       },
       error:() =>{
@@ -346,4 +349,22 @@ cfdata4(){
       }
     })
   }
+
+       
+cfdata5(){
+   
+  this.api.candf_ptr_inv_count(this.getuserdata.dealership_name).subscribe({
+   next:(data) =>{
+     console.log(data.total);
+  this.cnf_ptr_inv_count = data[0].total;
+   },
+   error:() =>{
+     console.log('error');
+  
+   },
+   complete:() =>{
+
+   }
+ })
+}
 }

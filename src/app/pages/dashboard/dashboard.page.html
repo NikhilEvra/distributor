@@ -83,7 +83,7 @@
   <div *ngIf="showcnf">
     <ion-row  >
       <ion-col size="6" class="ion-text-center quickLink"  >
-        <ion-card class="card" style="height: 130px;"  (click)="land('/patnerinv')">
+        <ion-card class="card" style="height: 130px;"  (click)="land('/partnersinfo')">
           <ion-card-header color="danger">My Network  </ion-card-header><br>
           <ion-text style="font-size : 13px;">Total</ion-text><br>
           <ion-text style="text-align: center; font-size:12px;">{{cnfdealer_total}}</ion-text>
@@ -120,18 +120,18 @@
     <ion-row >
       <ion-col size="6" class="ion-text-center quickLink" >
         <ion-card class="card" style="height: 130px;"  (click)="land('/partnerpo')">
-          <ion-card-header color="danger" >My Network's PO  </ion-card-header><br>
+          <ion-card-header color="danger" >My Network's PO </ion-card-header><br>
           <ion-text style="font-size : 13px;">Total</ion-text><br>
           <ion-text style="text-align: center; font-size:12px;">{{cnf_ptr_po_count}}</ion-text>
         </ion-card>
       </ion-col>
-      <!-- <ion-col size="6" class="ion-text-center quickLink" >
-        <ion-card class="card" style="height: 130px;"  *ngFor="let dat of response2" (click)="land('/complaints')">
-          <ion-card-header color="danger">My Network's Tickets</ion-card-header><br>
-          <ion-text style="font-size : 13px;">Open/Closed</ion-text><br>
-          <ion-text style="text-align: center; font-size:12px;">{{dat.Open}}/{{dat.Closed}}</ion-text>
+      <ion-col size="6" class="ion-text-center quickLink"  >
+        <ion-card class="card" style="height: 130px;"  (click)="land('/patnerinv')">
+          <ion-card-header color="danger">My Network's Inventory  </ion-card-header><br>
+          <ion-text style="font-size : 13px;">Total</ion-text><br>
+          <ion-text style="text-align: center; font-size:12px;">{{cnf_ptr_inv_count}}</ion-text>
         </ion-card>
-      </ion-col> -->
+      </ion-col>
     </ion-row>
 
   </div>

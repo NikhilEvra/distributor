@@ -1,6 +1,6 @@
 <ion-header mode="ios">
   <ion-toolbar color="danger">
-    <ion-title>My Network's Tickets</ion-title>
+    <ion-title>My Network's Info</ion-title>
     <ion-buttons slot="start">
       <ion-menu-button></ion-menu-button>
     </ion-buttons>
@@ -11,13 +11,14 @@
 </ion-header>
 
 <ion-content>
+
   <ion-card>
     <img alt="Silhouette of mountains" src="https://evraconnect.com/apifolder/catalog/14.png"  />  
      
       <ion-card-content>
-        <ion-item  *ngFor="let dat of response" >
-          <ion-label><ion-button color="danger" (click)="land(dat.u_id)" >{{dat.dealership_name}}</ion-button></ion-label>
-          <ion-text>{{dat.total}}</ion-text>
+        <ion-item  *ngFor="let dat of response, index as i" >
+          <ion-label>{{i+1 }} : {{ dat.dealership_name}}</ion-label>
+          <ion-text>{{dat.user_type}}</ion-text>
         </ion-item>
 </ion-card-content>
 </ion-card>  

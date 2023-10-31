@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { NavigationExtras, Router } from '@angular/router';
 import { PatnersService } from 'src/app/service/patners/patners.service'
 
 @Component({
@@ -11,7 +12,8 @@ export class PartnerticketsPage implements OnInit {
   getuserdata: any=[];
   response:any=[];
   constructor(
-    private api : PatnersService
+    private api : PatnersService,
+    private router : Router
   ) {
     if (this.USTEMP) {
       this.getuserdata = JSON.parse(this.USTEMP) ;
@@ -38,6 +40,19 @@ cfdata(){
 
    }
  })
+}
+
+land(id : any){
+  // console.log(id);
+  // this.router.navigate(['/viewcomplaint'], {queryParams : id});
+  // this.router.navigate(['map'], {queryParams: this.station});
+  let navigationExtras: NavigationExtras = {
+    queryParams: {
+      id:id
+    }
+  };
+
+  this.router.navigate(['/p-complaints'], navigationExtras);
 }
 
 

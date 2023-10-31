@@ -178,6 +178,22 @@ const routes: Routes = [
     path: 'partnerpo',
     loadChildren: () => import('./pages/cnf/partnerpo/partnerpo.module').then( m => m.PartnerpoPageModule)
   },
+  {
+    path: 'partnersinfo',
+    loadChildren: () => import('./pages/cnf/partnersinfo/partnersinfo.module').then( m => m.PartnersinfoPageModule)
+  },
+  {
+    path: 'p-complaints',
+    loadChildren: () => import('./pages/cnf/p-complaints/p-complaints.module').then( m => m.PComplaintsPageModule)
+  },
+  {
+    path: 'p-open-complaints',
+    loadChildren: () => import('./pages/cnf/p-open-complaints/p-open-complaints.module').then( m => m.POpenComplaintsPageModule)
+  },
+  {
+    path: 'p-closed-complaints',
+    loadChildren: () => import('./pages/cnf/p-closed-complaints/p-closed-complaints.module').then( m => m.PClosedComplaintsPageModule)
+  },
   // {
   //   path: 'tab4',
   //   loadChildren: () => import('./tab4/tab4.module').then( m => m.Tab4PageModule)

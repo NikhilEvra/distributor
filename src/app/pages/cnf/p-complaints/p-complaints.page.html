@@ -1,0 +1,36 @@
+<ion-header mode="ios">
+  <ion-toolbar color="danger">
+    <ion-title>Partner's Complaints</ion-title>
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-buttons slot="end">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-refresher slot="fixed" (ionRefresh)="handleRefresh($event)">
+    <ion-refresher-content></ion-refresher-content>
+  </ion-refresher>
+  <ion-card *ngFor="let dat of response" >
+    <img src="assets/homepage/complaint.jpg"  />  
+    <ion-card-content>
+      <ion-item>
+        <ion-label>Total Tickets</ion-label>
+        <ion-text>{{dat.total}}</ion-text>
+      </ion-item>
+      <ion-item>
+        <ion-label><ion-button color="danger" (click)="openPage(idd.id)">Open Tickets</ion-button> </ion-label>
+        <ion-text>{{dat.Open}}</ion-text>
+      </ion-item>
+      <ion-item>
+        <ion-label> <ion-button color="danger" (click)="openPage2(idd.id)">Closed Tickets</ion-button></ion-label>
+        <ion-text>{{dat.Closed}}</ion-text>
+      </ion-item>
+    
+    </ion-card-content>
+  </ion-card>
+
+</ion-content>

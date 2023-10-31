@@ -15,7 +15,7 @@
   <ion-card>
     <img alt="Silhouette of mountains" src="https://evraconnect.com/apifolder/catalog/14.png"  />  
      
-      <ion-card-content>
+      <ion-card-content>  
         <ion-item  *ngFor="let dat of response" >
           <ion-label><ion-button color="danger" >{{dat.dealership_name}}</ion-button></ion-label>
           <ion-text>{{dat.total}}</ion-text>

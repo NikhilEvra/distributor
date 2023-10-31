@@ -26,7 +26,7 @@ export class PatnerinvPage implements OnInit {
   partner_inventory(){
     this.api.get_cnf_partner_inv(this.getuserdata.dealership_name).subscribe({
         next:(data) =>{
-          console.log(data[0]);
+          // console.log(data[0]);
           this.response = data;
           console.log(this.response);
          

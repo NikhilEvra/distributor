@@ -280,7 +280,7 @@ export class FormService {
   }
   candf_dash_data(data:any):Observable<any>{
     const formData = new FormData();
-    formData.append('state',data);
+    formData.append('cnf',data);
     return this.api.post<any>(environment.apiurl + 'candf_dash_data.php', formData);
   }
 
@@ -317,6 +317,12 @@ export class FormService {
     const formData = new FormData();
     formData.append('cnf',data);
     return this.api.post<any>(environment.apiurl + 'cnf_get_ptr_po_count.php', formData);
+  }
+
+  candf_ptr_inv_count(data:any):Observable<any>{
+    const formData = new FormData();
+    formData.append('cnf',data);
+    return this.api.post<any>(environment.apiurl + 'cnf_partner_inv_count.php', formData);
   }
 
 }
